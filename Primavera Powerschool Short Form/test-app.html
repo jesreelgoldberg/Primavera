@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerSchool Slim Form – Test Harness</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;
+      margin: 0; padding: 24px; background: #f4f6f8; color: #1e1e1e;
+    }
+    h1 { font-size: 1.4rem; margin-bottom: 4px; }
+    .subtitle { color: #555; font-size: .85rem; margin-bottom: 20px; }
+
+    /* ---- control bar ---- */
+    .controls {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 16px; background: #fff; border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1); margin-bottom: 20px;
+    }
+    .controls button {
+      padding: 8px 14px; border: none; border-radius: 6px;
+      background: #3b82f6; color: #fff; font-size: .82rem;
+      cursor: pointer; transition: background .15s;
+    }
+    .controls button:hover { background: #2563eb; }
+    .controls button.secondary { background: #64748b; }
+    .controls button.secondary:hover { background: #475569; }
+    .controls button.danger { background: #ef4444; }
+    .controls button.danger:hover { background: #dc2626; }
+
+    /* ---- log panel ---- */
+    #log {
+      background: #1e293b; color: #e2e8f0; font-family: "SF Mono", "Fira Code", monospace;
+      font-size: .78rem; padding: 14px 16px; border-radius: 8px;
+      max-height: 320px; overflow-y: auto; margin-bottom: 20px;
+      white-space: pre-wrap; line-height: 1.55;
+    }
+    #log .pass { color: #4ade80; }
+    #log .fail { color: #f87171; }
+    #log .info { color: #93c5fd; }
+
+    /* ---- mock form ---- */
+    .mock-form {
+      background: #fff; padding: 20px; border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+    .mock-form h2 { font-size: 1.1rem; margin-top: 0; }
+    .gform_page { border: 1px dashed #cbd5e1; padding: 14px; border-radius: 6px; margin-bottom: 12px; }
+    .gform_page.hidden { display: none; }
+    .gform_title { font-weight: 700; font-size: 1rem; margin-bottom: 10px; }
+    .sm-interest-form-container { padding: 10px; background: #fef9c3; border-radius: 6px; margin-bottom: 10px; }
+    .submit-form-powerschool { margin-top: 10px; }
+    .gf-prev-top-container { margin-bottom: 8px; }
+    button, input[type="button"] {
+      padding: 6px 12px; border: 1px solid #94a3b8; border-radius: 4px;
+      background: #f1f5f9; cursor: pointer; font-size: .82rem;
+    }
+    .brand-new-enroll-container { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
+    p.brand-new-enroll { margin: 0; font-size: .8rem; color: #555; }
+    p.new-student { font-size: .82rem; color: #64748b; }
+    #gform_ajax_spinner_58 { display: inline-block; width: 18px; height: 18px; border: 2px solid #3b82f6; border-top-color: transparent; border-radius: 50%; animation: spin .6s linear infinite; vertical-align: middle; margin-left: 6px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #countdown { font-weight: 700; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+
+<h1>PowerSchool Slim Form – Test Harness</h1>
+<p class="subtitle">Click buttons below to run automated checks or interact with the mock form manually.</p>
+
+<div class="controls">
+  <button onclick="runAllTests()">Run All Tests</button>
+  <button class="secondary" onclick="simulatePageLoad(1)">Simulate Page 1</button>
+  <button class="secondary" onclick="simulatePageLoad(2)">Simulate Page 2</button>
+  <button class="secondary" onclick="simulateConfirmation()">Simulate Confirmation</button>
+  <button class="danger"    onclick="clearLog()">Clear Log</button>
+</div>
+
+<div id="log"></div>
+
+<div class="mock-form">
+  <h2>Mock Gravity Form #58</h2>
+
+  <div class="sm-interest-form-container">
+    <strong>Interest Form Container</strong> (visible on page 1 only)
+    <br/>
+    <input type="button" class="sm-interest-form-returning-customer-button" value="Returning Customer" />
+  </div>
+
+  <div id="gform_wrapper_58">
+    <div class="gform_title">Original Title</div>
+
+    <div id="gform_58">
+      <!-- Page 1 -->
+      <div class="gform_page" id="gform_page_58_1">
+        <input type="hidden" id="gform_source_page_number_58" value="1" />
+        <p>Page 1 fields go here…</p>
+        <button id="gform_next_button_58_29" type="button">Next</button>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="gform_page hidden" id="gform_page_58_2">
+        <button id="gform_previous_button_58" type="button">Previous</button>
+        <p>Page 2 fields go here…</p>
+        <select id="input_58_32">
+          <option value="Spring - 25/26">Spring - 25/26</option>
+          <option value="Fall - 26/27">Fall - 26/27</option>
+        </select>
+        <div class="submit-form-powerschool">
+          <button id="gform_submit_button_58" type="button">Submit</button>
+        </div>
+      </div>
+
+      <!-- Confirmation (hidden until triggered) -->
+      <div id="gform_confirmation_58" class="gform_page hidden">
+        <p>Thanks! Redirecting in <span id="countdown">3</span> seconds…</p>
+      </div>
+
+      <img id="gform_ajax_spinner_58" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="spinner" style="display:none" />
+    </div>
+  </div>
+
+  <div class="sm-interest-form-back-button" style="margin-top:10px;">
+    <button class="sm-interest-form-back-button">← Back</button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="powerschool-slim-form.js"></script>
+<script>
+/* ---------- helpers ---------- */
+const $log = document.getElementById('log');
+
+function log(msg, cls) {
+  const span = document.createElement('span');
+  span.className = cls || '';
+  span.textContent = msg + '\n';
+  $log.appendChild(span);
+  $log.scrollTop = $log.scrollHeight;
+}
+
+function assert(condition, label) {
+  if (condition) {
+    log('  PASS  ' + label, 'pass');
+  } else {
+    log('  FAIL  ' + label, 'fail');
+  }
+  return condition;
+}
+
+function clearLog() { $log.innerHTML = ''; }
+
+/* ---------- simulate GF events ---------- */
+function simulatePageLoad(pageNum) {
+  log('── Simulating gform_page_loaded  →  page ' + pageNum, 'info');
+
+  document.querySelectorAll('.gform_page').forEach(function (p) { p.classList.add('hidden'); });
+  const target = document.getElementById('gform_page_58_' + pageNum);
+  if (target) target.classList.remove('hidden');
+  document.getElementById('gform_source_page_number_58').value = pageNum;
+
+  jQuery(document).trigger('gform_page_loaded', [58, pageNum]);
+}
+
+function simulateConfirmation() {
+  log('── Simulating gform_confirmation_loaded  →  form 58', 'info');
+
+  document.querySelectorAll('.gform_page').forEach(function (p) { p.classList.add('hidden'); });
+  document.getElementById('gform_confirmation_58').classList.remove('hidden');
+
+  // Prevent actual redirect during testing
+  const origLocation = window.location.href;
+  Object.defineProperty(window, '__redirectCaptured', { value: null, writable: true });
+  const origAssign = window.location.href;
+
+  jQuery(document).trigger('gform_confirmation_loaded', [58]);
+}
+
+/* ---------- test suites ---------- */
+function testWrapNextButton() {
+  log('\n▸ Test: wrapNextButton', 'info');
+  simulatePageLoad(1);
+
+  setTimeout(function () {
+    const btn = document.getElementById('gform_next_button_58_29');
+    assert(btn && btn.parentNode.classList.contains('brand-new-enroll-container'),
+      'Next button is wrapped in .brand-new-enroll-container');
+    assert(!!document.querySelector('.brand-new-enroll-container p.brand-new-enroll'),
+      '"I\'ve never submitted an application" text exists');
+  }, 150);
+}
+
+function testMovePrevButton() {
+  log('\n▸ Test: movePrevButton58', 'info');
+  simulatePageLoad(2);
+
+  setTimeout(function () {
+    const topContainer = document.querySelector('#gform_page_58_2 .gf-prev-top-container');
+    assert(!!topContainer, '.gf-prev-top-container created on page 2');
+    const prev = document.getElementById('gform_previous_button_58');
+    assert(prev && prev.closest('.gf-prev-top-container'),
+      'Previous button moved inside .gf-prev-top-container');
+  }, 150);
+}
+
+function testTitleUpdate() {
+  log('\n▸ Test: updateGFTitleFast', 'info');
+
+  setTimeout(function () {
+    const title = document.querySelector('#gform_wrapper_58 .gform_title');
+    assert(title && title.textContent === "Let's Get Started!",
+      'Title changed to "Let\'s Get Started!"');
+    assert(document.body.classList.contains('gf58-title-ready'),
+      'Body has .gf58-title-ready class');
+  }, 100);
+}
+
+function testInterestContainerVisibility() {
+  log('\n▸ Test: syncInterestContainer', 'info');
+
+  simulatePageLoad(1);
+  setTimeout(function () {
+    const container = document.querySelector('.sm-interest-form-container');
+    const visible = container && (container.style.display !== 'none');
+    assert(visible, 'Interest container visible on page 1');
+
+    simulatePageLoad(2);
+    setTimeout(function () {
+      const hidden = container && (container.style.display === 'none');
+      assert(hidden, 'Interest container hidden on page 2');
+    }, 400);
+  }, 400);
+}
+
+function testInjectHtml() {
+  log('\n▸ Test: injectHtmlIfNeeded (page 2)', 'info');
+  simulatePageLoad(2);
+
+  setTimeout(function () {
+    const injected = document.getElementById('field_58_26');
+    assert(!!injected, 'Returning-applicant HTML injected on page 2');
+
+    simulatePageLoad(1);
+    setTimeout(function () {
+      const removed = !document.getElementById('field_58_26');
+      assert(removed, 'Returning-applicant HTML removed when leaving page 2');
+    }, 200);
+  }, 200);
+}
+
+function testSpinnerMove() {
+  log('\n▸ Test: moveSpinnerNextTo', 'info');
+  simulatePageLoad(2);
+
+  setTimeout(function () {
+    const spinner = document.getElementById('gform_ajax_spinner_58');
+    spinner.style.display = 'inline-block';
+
+    jQuery('#gform_submit_button_58').trigger('click');
+    setTimeout(function () {
+      const submit = document.getElementById('gform_submit_button_58');
+      const next = submit && submit.nextElementSibling;
+      assert(next && next.id === 'gform_ajax_spinner_58',
+        'Spinner moved next to Submit button');
+      spinner.style.display = 'none';
+    }, 100);
+  }, 150);
+}
+
+function testCountdown() {
+  log('\n▸ Test: countdown timer', 'info');
+  simulatePageLoad(2);
+
+  setTimeout(function () {
+    simulateConfirmation();
+    const el = document.getElementById('countdown');
+    assert(el && el.textContent === '3', 'Countdown starts at 3');
+
+    setTimeout(function () {
+      assert(el && parseInt(el.textContent, 10) < 3, 'Countdown decremented after ~1 s');
+    }, 1200);
+  }, 100);
+}
+
+/* ---------- run all ---------- */
+function runAllTests() {
+  clearLog();
+  log('========================================', 'info');
+  log('  Running all tests…', 'info');
+  log('========================================', 'info');
+
+  testTitleUpdate();
+
+  setTimeout(testWrapNextButton, 300);
+  setTimeout(testMovePrevButton, 700);
+  setTimeout(testInterestContainerVisibility, 1100);
+  setTimeout(testInjectHtml, 2200);
+  setTimeout(testSpinnerMove, 3000);
+  setTimeout(testCountdown, 3600);
+
+  setTimeout(function () {
+    log('\n========================================', 'info');
+    log('  All tests dispatched. Review results above.', 'info');
+    log('========================================', 'info');
+  }, 5500);
+}
+</script>
+</body>
+</html>
