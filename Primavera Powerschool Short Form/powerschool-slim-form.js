@@ -1,15 +1,6 @@
 jQuery(function ($) {
     const FORM_ID = 58;
-/*    const TARGET_PAGE = 2;
-    const INJECT_ID = 'field_58_26';
-    const MARKUP = `
-<div id="field_58_26" class="gfield gfield--type-html gfield--input-type-html gfield--width-full gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible">
-  <p class="new-student">
-    Already started a <span style="font-style: italic;">new student</span> application with Primavera? To return to an existing PowerSchool application,
-    <a href="https://registration.powerschool.com/family/gosnap.aspx?action=46111&amp;culture=en" target="_blank" rel="noopener noreferrer">click here</a>
-  </p>
-</div>`; */
-    let countdownTimeoutId = null;
+    //let countdownTimeoutId = null;
 
     /* ----- 1. WRAP NEXT BUTTON AND ADD "I've never submitted an application" TEXT ----- */
     function wrapNextButton() {
@@ -134,18 +125,6 @@ jQuery(function ($) {
     /* ------------------------------
        B) Returning customer flow: Hide/show the Gravity Forms wrapper
        ------------------------------ */
-/*     $(document).on('click', 'input.sm-interest-form-returning-customer-button', function () {
-        $('#gform_wrapper_58').hide().fadeOut(150);
-        $('.sm-interest-form-container').hide().fadeOut(150);
-    });  */
-    
-/*     $(document).on('click', 'input#current-year', function () {
-        const page2 = document.getElementById('page-2-form');
-        page2.style.setProperty('display', 'none', 'important');
-
-        const page3 = document.getElementById('page-3-form');
-        page3.style.setProperty('display', 'block', 'important');
-    });  */
 
     function resetCustomPages() {
         $('body').removeClass('sm-show-page-2 sm-show-page-3 returning-customer-mode');
@@ -293,7 +272,7 @@ jQuery(function ($) {
 
     /* ----- 5. MOVE THE SPINNER NEXT TO THE NEXT & SUBMIT BUTTONS ----- */
     
-    const SPINNER = $('#gform_wrapper_58 #gform_ajax_spinner_58'); // the one we keep
+    //const SPINNER = $('#gform_wrapper_58 #gform_ajax_spinner_58'); // the one we keep
 
     function moveSpinnerNextTo($btn) {
         const $spinner = $('#gform_wrapper_58 #gform_ajax_spinner_58');
@@ -313,47 +292,6 @@ jQuery(function ($) {
         moveSpinnerNextTo($(this));
     });
 
-    /* ----- 6. ADD RETURNING APPLICANT VERBAGE IN FORM FOOTER ON PAGE 2 ----- */
-
-/*     function injectHtmlIfNeeded(currentPage) {
-    const $existing = $('#' + INJECT_ID);
-
-    // Only show on page 2
-    if (parseInt(currentPage, 10) === TARGET_PAGE) {
-
-        // Prevent duplicates
-        if ($existing.length) return;
-
-        const $submit = $('#gform_submit_button_58');
-        if (!$submit.length) return;
-
-        const $anchor = $submit.closest('.submit-form-powerschool').length
-            ? $submit.closest('.submit-form-powerschool')
-            : $submit;
-
-        if ($anchor.length) {
-            $anchor.after(MARKUP);
-        }
-        } else {
-            // Remove when leaving page 2
-            if ($existing.length) {
-                $existing.remove();
-            }
-        }
-    }
-
-    // Initial check (in case page 2 is loaded directly)
-    const initialPage2 = $('#gform_source_page_number_' + FORM_ID).val();
-    if (initialPage2) {
-        injectHtmlIfNeeded(initialPage);
-    }
-
-    // Primary trigger: page changes
-    $(document).on('gform_page_loaded', function (event, form_id, current_page) {
-        if (parseInt(form_id, 10) === FORM_ID) {
-            setTimeout(() => injectHtmlIfNeeded(current_page), 50);
-        }
-    }); */
 });
 
 /* Call Enrollment Number */
