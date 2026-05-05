@@ -1,0 +1,90 @@
+<div id="strongmind-interest-form"><meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="o9I5GkTuBJE1XVyWPERjca9j_r_TLd26aYwvcfetvJqJT8qrKNM3nto5Im6qPl78nszsbCRYYLt4Pe_-UxZEpw">
+<link rel="stylesheet" crossorigin="anonymous" href="https://kit.fontawesome.com/9fc3e006bd.css" data-turbo-track="reload">
+<link rel="stylesheet" href="https://cdn.strongmind.com/backpack-ui/latest/assets/css/BackpackUI.css" data-turbo-track="reload">
+
+
+<div class="strongmind-ui bg-neutral-100 inline-block">
+  <div class="sm-interest-form-container" style="display: flex; flex-direction: column; justify-content: space-between; gap: 10px; width: 500px; margin: 40px; padding: 10px;">
+  
+  <!-- Header section with back button and title on same line -->
+  <div style="display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 10px;">
+    <!-- Back button - positioned on the left -->
+    <button type="button" class="sm-interest-form-back-button" onclick="goBackToDecision()" style="position: absolute; left: 0; background: none; border: none; color: #666; font-size: 18px; cursor: pointer; padding: 8px; display: flex; align-items: center;">
+      <i class="fa-solid fa-chevron-left" style="margin-right: 8px;"></i>
+    </button>
+    
+    <!-- Centered heading -->
+    <h1 class="sm-interest-form-header" style="text-align: center; margin: 0;">Welcome Back!</h1>
+  </div>
+
+  <!-- Send Me a Link Section -->
+  <div style="margin-bottom: 2rem;">
+    <h2 style="text-align: center; font-size: 24px; margin-bottom: 1rem; color: #333;">Send Me a Link</h2>
+    
+    <p style="text-align: center; color: #666; margin-bottom: 2rem; font-size: 16px;">
+      Choose how you'd like to receive your login link.
+    </p>
+
+    <!-- Form for login link -->
+    <form id="easy-login-form" onsubmit="handleEasyLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+      <!-- Error message display -->
+      <div id="easy-login-error" style="display: none; background-color: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center;">
+          <i class="fa-solid fa-exclamation-triangle" style="color: #dc2626; margin-right: 8px;"></i>
+          <div id="easy-login-error-message" style="color: #dc2626; font-size: 14px;"></div>
+        </div>
+      </div>
+
+      <!-- Success message display -->
+      <div id="easy-login-success" style="display: none; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center;">
+          <i class="fa-solid fa-check-circle" style="color: #16a34a; margin-right: 8px;"></i>
+          <div id="easy-login-success-message" style="color: #16a34a; font-size: 14px;"></div>
+        </div>
+      </div>
+
+      <!-- Radio button options -->
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+        <label style="display: flex; align-items: center; cursor: pointer; font-size: 16px; color: #333;">
+          <input type="radio" name="contact_method" value="email" checked="" onchange="toggleContactMethod()" style="margin-right: 12px; width: 18px; height: 18px;">
+          Send login link to my email
+        </label>
+        
+        <label style="display: flex; align-items: center; cursor: pointer; font-size: 16px; color: #333;">
+          <input type="radio" name="contact_method" value="phone" onchange="toggleContactMethod()" style="margin-right: 12px; width: 18px; height: 18px;">
+          Send login link to my phone
+        </label>
+      </div>
+
+      <!-- Dynamic input section -->
+      <div id="email-section" style="display: block;">
+        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Email</label>
+        <input type="email" id="easy-login-email" name="email" placeholder="Enter email address" class="sm-interest-form-input" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; margin-bottom: 8px;">
+        <p style="font-size: 14px; color: #666; margin: 0;">
+          This email will be used to send you your secure login link.
+        </p>
+      </div>
+
+      <div id="phone-section" style="display: none;">
+        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Phone</label>
+        <input type="tel" id="easy-login-phone" name="phone_number" placeholder="(555) 123-4567" class="sm-interest-form-input" oninput="formatPhoneNumber(event)" maxlength="14" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; margin-bottom: 8px;">
+        <p style="font-size: 14px; color: #666; margin: 0;">
+          This phone number will be used to send you your secure login link.
+        </p>
+      </div>
+
+      <!-- Send Link Button -->
+      <button type="submit" id="easy-login-submit" class="sm-interest-form-submit" style="margin-top: 1rem; padding: 16px; font-size: 18px; font-weight: 600; cursor: pointer; background-color: #2563eb; color: white; border: none; border-radius: 8px; transition: background-color 0.2s;">
+        <span id="easy-login-submit-text">Send Link</span>
+        <span id="easy-login-loading" style="display: none;">
+          <i class="fa-solid fa-spinner fa-spin" style="margin-right: 8px;"></i>
+          Sending...
+        </span>
+      </button>
+    </form>
+  </div>
+</div> 
+</div>
+
+</div>

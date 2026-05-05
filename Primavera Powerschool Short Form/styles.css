@@ -1,0 +1,467 @@
+/* POWERSCHOOL GRAVITY FORMS CONTAINER */
+
+/* NEW UPDATES */
+/* Default: hide custom pages */
+#page-2-form,
+#page-3-form {
+  display: none;
+}
+
+/* Ensure headers remain on page 2 & 3 */
+#page-2 h1.sm-interest-form-header, #page-3 h1.sm-interest-form-header { display: block !important; }
+
+/* ---------- PAGE 2 ---------- */
+
+/* Hide ALL shared containers inside main wrapper */
+body.sm-show-page-2 #strongmind-interest-form .sm-interest-form-container, body.sm-show-page-2 div#gform_wrapper_58 { display: none !important; }
+
+/* Show ONLY page 2 container */
+body.sm-show-page-2 #page-2-form .sm-interest-form-container { display: flex !important; }
+
+/* Ensure page 2 wrapper is visible */
+body.sm-show-page-2 #page-2-form { display: block !important; }
+
+/* Header adjustments */
+body.sm-show-page-2 h1.sm-interest-form-header { margin: -13px 0 !important; }
+
+/* Mouseover for purple button */
+input#next-year:hover { opacity: .85 !important; }
+
+/* ---------- PAGE 3 ---------- */
+
+body.sm-show-page-3 #strongmind-interest-form .sm-interest-form-container, body.sm-show-page-3 div#gform_wrapper_58 { display: none !important; }
+body.sm-show-page-3 #page-3-form .sm-interest-form-container { display: flex !important; }
+body.sm-show-page-3 #page-3-form { display: block !important; }
+body.sm-show-page-3 h1.sm-interest-form-header { margin: -13px 0 !important; }
+
+.sm-call-enrollment {
+    text-transform: uppercase;
+    font-weight: bold !important;
+}
+
+/**/
+.sm-interest-form-option.returning-student:nth-of-type(2) { margin-bottom: 0 !important; }
+div .sm-interest-form-option.returning-student { display: block !important; }
+.sm-interest-form-option.returning-student input#current-year, .sm-interest-form-option.returning-student input#next-year {
+    max-width: 250px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    padding: 16px;
+}
+.sm-interest-form-option.returning-student.current-year input.sm-interest-form-returning-customer-button { background: #009bc2 !important; }
+.sm-interest-form-option.returning-student.next-year input.sm-interest-form-returning-customer-button { background: #473192 !important; }
+.sm-interest-form-option.returning-student.enrollment-team input.sm-interest-form-returning-customer-button { background: #f99d33 !important; }
+.sm-interest-form-option.returning-student.enrollment-team input.sm-interest-form-returning-customer-button {
+    max-width: 100%;
+    width: inherit;
+}
+.sm-interest-form-option.returning-student.next-year { margin-bottom: -50px !important; }
+
+/* ----- end new updates ----- */
+
+#gform_wrapper_58 { margin-bottom: -10px !important; }
+.ps-js-container { margin-bottom: -24px !important; }
+.row .col.section-title { border-bottom: none; }
+.col.span_12.section-title.text-align-center.extra-padding { padding: 0; }
+.clear { display: none; }
+h2.gform_title { margin-bottom: 5px; }
+h2.gform_title, #field_58_9 h2 { font-weight: 800 !important; }
+h2.next-step { margin-top: 15px !important; }
+.gchoice { margin: 7px 0; }
+#field_58_8, fieldset#field_58_3 { margin-bottom: 5px; }
+label#label_58_3_1, label#label_58_3_2, label#label_58_3_3 { margin-left: 7px; }
+legend.gfield_label.gform-field-label.gfield_label_before_complex { color: #4B5563; }
+label.gform-field-label.gform-field-label--type-sub, #gfield_description_58_5 {
+    font-style: italic;
+    font-size: small;
+}
+#gform_fields_58_2 {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 16px 23px;
+}
+#field_58_26 {
+    max-width: 500px;
+    margin: 0 auto 40px;
+    padding: 16px 23px;
+}
+#field_58_34 {
+    font-style: italic;
+    font-size: small;
+    margin-top: -10px;
+}
+div#field_58_5 {
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+input#gform_submit_button_58 {
+    margin-bottom: 40px !important;
+}
+.gform-page-footer.gform_page_footer.top_label {
+    margin-top: 0;
+    padding-top: 15px;
+}
+/* Summer Updates */
+#field_58_33 {
+    margin-top: -25px;
+    margin-bottom: 15px;
+}
+/* Hide the title until our JS confirms it has been updated */
+#gform_wrapper_58 .gform_title { visibility: hidden; }
+
+/* Once updated, show the title */
+body.gf58-title-ready #gform_wrapper_58 .gform_title { visibility: visible; }
+
+/* Validation */
+#gform_58_validation_container {
+    margin: 35px auto -10px;
+    max-width: 90%;
+}
+
+/* Brand New Button */
+p.brand-new-enroll, .wpb_wrapper p { font-size: 14px; }
+#gform_fields_58 button { text-align: center; margin: 0 auto; display: block; }
+.brand-new-enroll-container p.brand-new-enroll {
+    font-style: italic;
+    color: #666;
+}
+.gform-page-footer.gform_page_footer.top_label { padding-bottom: 0 !important; }
+
+/* Returning Button */
+#field_58_31 { margin-bottom: 15px; }
+
+/* Previous Button */
+.gf-prev-top-container { position: relative; }
+.gf-prev-top-container input:not([type='checkbox'],
+.gf-prev-top-container [type='radio'],
+.gf-prev-top-container [type='submit']) {
+    background-color: transparent !important;
+    border: none !important;
+}
+.gf-prev-top-container input#gform_previous_button_58 {
+    width: 45px;
+    margin-left: 8%;
+    position: absolute;
+    left: 0;
+    top: -55px;
+}
+button.sm-interest-form-back-button.page-2-back-button, button.sm-interest-form-back-button.page-3-back-button { margin-left: 8%; }
+
+/* Lock the previous button dimensions so SVG can't flash huge */
+#gform_wrapper_58 #gform_previous_button_58, button.sm-interest-form-back-button.page-2-back-button, button.sm-interest-form-back-button.page-3-back-button {
+    width: 9px;
+    height: 48px;
+    padding: 0;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Hide prev until page is ready (prevents any flash) */
+body.gf58-page-loading #gform_wrapper_58 #gform_previous_button_58 { visibility: hidden !important; }
+
+/* Next Button */
+input#gform_next_button_58_29 {
+    background-color: #f99d33;
+    font-weight: bold;
+    padding: 12px;
+    opacity: 1;
+    transition: opacity .45s cubic-bezier(0.25, 1, 0.33, 1), transform .45s cubic-bezier(0.25, 1, 0.33, 1), border-color .45s cubic-bezier(0.25, 1, 0.33, 1), color .45s cubic-bezier(0.25, 1, 0.33, 1), background-color .45s cubic-bezier(0.25, 1, 0.33, 1), box-shadow .45s cubic-bezier(0.25, 1, 0.33, 1);
+}
+/* Preferred Start Field */
+#field_58_32 { margin: -15px 0 15px !important; }
+
+/* AJAX Spinner */
+#gform_ajax_spinner_58 {
+    position: absolute !important;
+    top: 0;
+    margin-left: 10px !important;
+    margin-bottom: 45px !important;
+    margin-top: 20px !important;
+}
+#gform_wrapper_58 .gform-page-footer.gform_page_footer { position: relative !important; }
+
+/* Keep only ONE spinner instance for form 58 */
+#gform_wrapper_58 #gform_ajax_spinner_58_span.gform-loader-spinner {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+.gf-prev-top-container #gform_ajax_spinner_58.gform-loader {
+    display: none !important;
+    margin-left: 7px !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* Styles here apply to Chrome, Safari, and Edge */
+    #gform_ajax_spinner_58 { margin-top: 37px !important; }
+}
+@supports (not (-webkit-text-size-adjust:none)) and (font: -apple-system-body) {
+    /* Safari desktop-only styles */
+    #gform_ajax_spinner_58 { margin-top: 21px !important; }
+    .gf-prev-top-container #gform_ajax_spinner_58.gform-loader { margin-left: 20px !important; }
+}
+@-moz-document url-prefix() {
+    /* Styles here apply only to Firefox */
+    #gform_ajax_spinner_58 { margin-top: 22px !important; }
+}
+@supports (-ms-ime-align: auto) {
+    /* CSS rules specific to older Internet Explorer and pre-Chromium Edge */
+}
+/* iOS-only refinement */
+@supports (-webkit-touch-callout: none) {
+    #gform_ajax_spinner_58 { margin-top: 19px !important; }
+}
+
+/* Returning Link */
+.gf-prev-top-container { position: relative; }
+button.sm-interest-form-returning-customer {
+    margin: 0 auto;
+    display: block;
+}
+
+/* Submit Button */
+input#gform_submit_button_58 {
+    max-width: 275px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    opacity: 1;
+    transition: opacity .45s cubic-bezier(0.25, 1, 0.33, 1), transform .45s cubic-bezier(0.25, 1, 0.33, 1), border-color .45s cubic-bezier(0.25, 1, 0.33, 1), color .45s cubic-bezier(0.25, 1, 0.33, 1), background-color .45s cubic-bezier(0.25, 1, 0.33, 1), box-shadow .45s cubic-bezier(0.25, 1, 0.33, 1);
+}
+input#gform_next_button_58_29:hover, input#gform_submit_button_58:hover { opacity: 0.85; }
+
+/* Confirmation */
+#gform_confirmation_message_58 {
+    text-align: center;
+    font-size: 14px;
+    padding: 20px 25px;
+}
+.submit-form-powerschool {
+    max-width: 275px;
+    margin: 0 auto;
+}
+.submit-form-powerschool::after {
+    content: "\f35d";
+    font-family: "Font Awesome 6 Pro";
+    float: right;
+    color: #fff;
+    margin: -41px 41px;
+    z-index: auto;
+    position: relative;
+}
+.primavera-sm-interest-form .gform-footer.gform_footer.top_label { padding-left: 30px; }
+.primavera-sm-interest-form .gform_wrapper.gravity-theme .gfield_checkbox label {
+    display: inline-block;
+    font-size: 14px;
+}
+.primavera-sm-interest-form h1,.primavera-sm-interest-form h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+.primavera-sm-interest-form h1, h2.gform_title { font-size: 26px !important; }
+.primavera-sm-interest-form h2 { font-size: 30px; }
+.gform-page-footer.gform_page_footer.top_label, .primavera-sm-interest-form p.launch-powerschool, .primavera-sm-interest-form p.new-student { text-align: center; }
+.primavera-sm-interest-form p.new-student span {
+    color: red;
+    font-weight: bold;
+}
+.primavera-sm-interest-form p.new-student a { color: blue; }
+
+/* STRONGMIND INTEREST FORM*/
+.sm-interest-form-option input.sm-interest-form-new-customer-button, .sm-interest-form-option:first-of-type, p.gform_required_legend { display: none !important; }
+
+/* Default: always hidden */
+h1.sm-interest-form-header { display: none; }
+
+/* When returning user is active, show it */
+body.returning-customer-mode h1.sm-interest-form-header { display: block; }
+.sm-interest-form-option { transition: opacity 0.25s ease; }
+.sm-interest-form-option.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Page Fixes */
+li a { text-decoration: none !important; }
+#footer-widgets p, .text-base { font-size: initial !important; }
+.col.span_3.one-fourths.clear-both .textwidget p { line-height: 14px !important; }
+.col.span_3.one-fourths.clear-both { line-height: 1.1 !important; }
+#footer-outer p, #footer-outer a { font-size: 14px !important; }
+.material #footer-outer #footer-widgets .col ul li { padding: 5.5px 0 !important; }
+#top nav>ul>li[class*=button_solid_color]>a:before { padding: 17px 20px !important; }
+#footer-outer #footer-widgets .col p:last-child { line-height: 26px !important; }
+body[data-button-style=rounded] .container-wrap input[type=submit] {
+    margin: 0 auto;
+    display: block;
+}
+.nectar-animated-title-inner { margin-bottom: -10px; }
+.col.centered-text, .wpb_column.centered-text { text-align: left; }
+.has-global-section .wpb_text_column.wpb_content_element.wpb_animate_when_almost_visible.wpb_fadeInRight.fadeInRight.wpb_start_animation.animated { padding-bottom: 25px; }
+
+/*Interest Form */
+::placeholder { color: #555; }
+[class*=" icon-"] { background-color: transparent; }
+input#email, input#confirm-email, input#interest_form_email, input#interest_form_confirm_email, input#phone, input#confirm-phoneinput, #interest_form_phone, input#interest_form_confirm_phone { font-family: 'Open Sans', arial !important; }
+.sm-interest-form-container p, .sm-interest-form-container a, .sm-interest-form-container label { font-size: inherit !important; }
+.primavera-sm-interest-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.sm-interest-form-container {
+    margin: 25px auto !important;
+    max-width: 500px;
+    width: 100% !important;
+    padding: 10px 20px !important;
+}
+h1.sm-interest-form-header {
+    font-size: 26px;
+    padding-bottom: 5px;
+}
+p.sm-interest-form-text { padding-bottom: 15px; }
+fieldset.sm-interest-form-fieldset p.sm-input-group-label { padding-bottom: 0; }
+p.sm-input-group-label { font-weight: bold; }
+label[for="interest_form_student_first_name"],
+label[for="interest_form_student_last_name"],
+label[for="interest_form_dob"],
+label[for="interest_form_first_name"],
+label[for="interest_form_last_name"],
+label[for="interest_form_email"],
+label[for="interest_form_phone"],
+label[for="interest_form_confirm_email"],
+label[for="interest_form_confirm_phone"],
+label[for="interest_form_grade"] {
+    font-weight: bold;
+}
+label[for="interest_form_student_first_name"]:after,
+label[for="interest_form_student_last_name"]:after,
+label[for="interest_form_dob"]:after,
+label[for="interest_form_first_name"]:after,
+label[for="interest_form_last_name"]:after,
+label[for="interest_form_email"]:after,
+label[for="interest_form_phone"]:after,
+label[for="interest_form_confirm_email"]:after,
+label[for="interest_form_confirm_phone"]:after,
+label[for="interest_form_grade"]:after {
+    display: inline-block;
+    content: "*";
+    color: red;
+    padding-left: 3px;
+}
+p.sm-input-group-label:after {
+    display: inline-block;
+    content: "*";
+    color: #dc2626;
+}
+fieldset.sm-interest-form-fieldset label:nth-of-type(2) { font-style: italic; }
+.sm-interest-form-container strong:nth-of-type(1) {
+    padding: 5px 0 20px;
+    font-style: italic;
+}
+.sm-input-btn-container label { font-weight: normal !important; }
+.strongmind-ui input:not([type='checkbox'], [type='radio'], .sm-btn):hover { border-color: transparent !important; }
+button.sm-interest-form-login { background-color: #f99d33; color: #fff; display: block; max-width: 300px; text-align: center; margin: 0 auto 15px; }
+button.sm-interest-form-login a { color: #fff !important; display: block; text-decoration: none; padding: 8px 24px; text-align: center; }
+button.sm-interest-form-login:hover, button.sm-interest-form-returning-customer:hover { opacity: .85 !important; }
+button.sm-interest-form-returning-customer {
+    padding: 16px 23px !important;
+    color: #fff;
+    font-weight: 600;
+}
+input.sm-interest-form-new-customer-button, input.sm-interest-form-returning-customer-button, button#easy-login-submit {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+button#easy-login-submit { background: #f99d33 !important; }
+button.sm-interest-form-returning-customer {
+    text-transform: uppercase;
+    font-weight: 700;
+    background: #009bc2 !important;
+}
+.sm-interest-form-option:nth-of-type(2) { margin-bottom: -50px !important; }
+.sm-interest-form-container div p:nth-of-type(1) {
+    margin-top: -10px;
+    padding-bottom: 0;
+}
+p.sm-interest-form-text { padding-bottom: 0; }
+input.sm-interest-form-submit {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+input.sm-interest-form-returning-customer-button { background: #77bd43 !important; }
+.sm-interest-form-container div fieldset.sm-interest-form-fieldset { padding: 4px 0; }
+.sm-interest-form-container div fieldset.sm-interest-form-fieldset:nth-of-type(2) { padding-bottom: 10px; }
+.sm-interest-form-container div p:nth-of-type(2), .sm-interest-form-container div p:nth-of-type(2) a {
+    color: #009bc2 !important;
+    font-weight: 600;
+}
+label.sm-interest-form-text-disclaimer { margin-bottom: 10px; }
+.sm-interest-form-container div h2 {
+    color: #473192 !important;
+    margin-top: -20px !important;
+}
+form#easy-login-form div:nth-of-type(3) { margin-bottom: 10px !important; }
+
+@media only screen and (max-width: 320px) {
+    input[type=submit] { font-size: 10px; }
+    h1.sm-interest-form-header { font-size: 18px; }
+    .sm-interest-form-container div:nth-of-type(4) { display: block !important; }
+    button#easy-login-submit { font-size: 16px !important; }
+}
+@media only screen and (max-width: 641px) {
+    .gform_wrapper.gravity-theme input:not([type=radio]):not([type=checkbox]):not([type=image]):not([type=file]) { line-height: inherit !important; }
+}
+@media only screen and (max-width: 999px) {
+    body[data-button-style=rounded] .container-wrap input[type=submit] { padding: 12px !important; }
+}
+@media only screen and (min-width: 690px) {
+    .gf-prev-top-container input#gform_previous_button_58, button.sm-interest-form-back-button.page-2-back-button, button.sm-interest-form-back-button.page-3-back-button { margin-left: 73px; }
+}
+
+/* Footer Adjustments */
+h4 { text-transform: none !important; }
+    .accreditation .logos {
+        display: flex !important;
+        justify-content: left !important;
+}
+@media only screen and (max-width: 1000px) {
+    .sm-interest-form-container div h2 { font-size: 21px !important; }
+    fieldset.sm-interest-form-fieldset { width: 100% !important; }
+    fieldset.sm-interest-form-fieldset:nth-of-type(2) { padding-top: 10px; }
+    fieldset.sm-interest-form-fieldset label:nth-of-type(2) { padding: 1px 0 10px; }
+    .sm-interest-form-container {
+        margin: 10px auto !important;
+        padding: 10px 20px !important;
+    }
+    .sm-interest-form-field-group { display: flow !important; }
+    input.sm-interest-form-submit { margin-top: 0; }
+    #page-2 h1.sm-interest-form-header, #page-3 h1.sm-interest-form-header { margin-top: -3px !important; }
+    .sm-interest-form-option.returning-student.current-year { margin-bottom: -5px; }
+    .accreditation .logos { justify-content: center !important; }
+    p.brand-new-enroll { padding-bottom: 5px !important; }
+}
+@media only screen and (min-width: 1000px) {
+    h1.sm-interest-form-header { font-size: 30px; }
+    .primavera-sm-interest-form h1, h2.gform_title { font-size: 30px !important; }
+    input#gform_next_button_58_29 { padding: 16px 23px; }
+    input.sm-interest-form-submit { margin-top: 10px; }
+    .gf-prev-top-container input#gform_previous_button_58,button.sm-interest-form-back-button.page-2-back-button, button.sm-interest-form-back-button.page-3-back-button { margin-left: 6% !important; }
+    .has-global-section .wpb_text_column.wpb_content_element.wpb_animate_when_almost_visible.wpb_fadeInRight.fadeInRight.wpb_start_animation.animated { padding-bottom: 50px; }
+}
+@media only screen and (min-width: 1301px) {
+    h1.sm-interest-form-header { font-size: 34px; }
+    .primavera-sm-interest-form h1, h2.gform_title { font-size: 34px !important; }
+    .gf-prev-top-container input#gform_previous_button_58 {
+        margin-left: 8% !important;
+        top: -63px;
+    }
+}
+@media only screen and (min-width: 1450px) {
+    .gf-prev-top-container input#gform_previous_button_58, button.sm-interest-form-back-button.page-2-back-button, button.sm-interest-form-back-button.page-3-back-button { margin-left: 50px !important; }
+}

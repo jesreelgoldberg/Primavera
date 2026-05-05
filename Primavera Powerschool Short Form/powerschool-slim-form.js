@@ -134,15 +134,53 @@ jQuery(function ($) {
     /* ------------------------------
        B) Returning customer flow: Hide/show the Gravity Forms wrapper
        ------------------------------ */
-    $(document).on('click', 'input.sm-interest-form-returning-customer-button', function () {
+/*     $(document).on('click', 'input.sm-interest-form-returning-customer-button', function () {
         $('#gform_wrapper_58').hide().fadeOut(150);
+        $('.sm-interest-form-container').hide().fadeOut(150);
+    });  */
+    
+/*     $(document).on('click', 'input#current-year', function () {
+        const page2 = document.getElementById('page-2-form');
+        page2.style.setProperty('display', 'none', 'important');
+
+        const page3 = document.getElementById('page-3-form');
+        page3.style.setProperty('display', 'block', 'important');
+    });  */
+
+    function resetCustomPages() {
+        $('body').removeClass('sm-show-page-2 sm-show-page-3 returning-customer-mode');
+    
+        // Only hide page 1 header
+        $('#strongmind-interest-form > .strongmind-ui .sm-interest-form-header').hide();
+    }
+    
+    function showPage2() {
+        $('body')
+        .removeClass('sm-show-page-3')
+        .addClass('sm-show-page-2');
+    }
+    
+    function showPage3() {
+        $('body')
+        .removeClass('sm-show-page-2')
+        .addClass('sm-show-page-3');
+    }
+    
+    $(document).on('click', 'input.sm-interest-form-returning-customer-button:not(#next-year)', function () {
+        showPage2();
     });
 
+    $(document).on('click', '.sm-go-to-page-3', function () {
+        showPage3();
+    });
+    
     $(document).on('click', '.sm-interest-form-back-button', function () {
-        $('#gform_wrapper_58')
-            .css('display', 'block')
-            .hide()
-            .fadeIn(200);
+        resetCustomPages();
+    });
+
+    $(document).on('click', 'button.sm-interest-form-back-button.page-3-back-button', function (e) {
+        e.stopImmediatePropagation(); // stops other click handlers
+        showPage2();
     });
 
     /* ------------------------------
@@ -173,6 +211,18 @@ jQuery(function ($) {
         updateGFTitleFast();
         requestAnimationFrame(updateGFTitleFast);
         setTimeout(updateGFTitleFast, 0);
+    });
+
+    // Prevent duplicate header on page 1 when clicking Previous buttons
+    function resetReturningCustomerHeader() {
+        $('body').removeClass('returning-customer-mode');
+    
+        // ONLY hide the page 1 header (not page 2/3)
+        $('#strongmind-interest-form > .strongmind-ui .sm-interest-form-header').hide();
+    }
+
+    $(document).on('click', '#gform_previous_button_58', function () {
+        resetReturningCustomerHeader();
     });
 
     // When RETURNING CUSTOMER button is clicked
@@ -305,3 +355,8 @@ jQuery(function ($) {
         }
     }); */
 });
+
+/* Call Enrollment Number */
+function callEnrollmentNumber() {
+    window.location.href = 'tel:4805300632';
+}
